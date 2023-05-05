@@ -18,4 +18,8 @@
       <ProjectReference Include="..\Bank.Currency.Exchange.Domain\Bank.Currency.Exchange.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Services\" />
+    </ItemGroup>
+
 </Project>

@@ -10,5 +10,7 @@ public static class ApplicationServicesExtension
         {
             opt.UseSqlServer(config.GetConnectionString("DefaultConnection"));
         });
+
+        services.AddScoped<IAccountService, AccountService>();
     }
 }

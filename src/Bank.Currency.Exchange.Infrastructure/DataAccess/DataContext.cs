@@ -1,3 +1,4 @@
+using Bank.Currency.Exchange.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Bank.Currency.Exchange.Infrastructure.DataAccess;
