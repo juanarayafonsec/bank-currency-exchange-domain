@@ -1,5 +1,3 @@
-using Bank.Currency.Exchange.Application.Interfaces;
-
 namespace Bank.Currency.Exchange.Api.Controllers;
 
 public class AccountController : BaseApiController
@@ -17,7 +15,7 @@ public class AccountController : BaseApiController
     [HttpPost("register")]
     public async Task<ActionResult<UserDto>> Register([FromBody] AddUserDto addUser)
     {
-        return await _accountService.AddUser(@addUser);
+        return await _accountService.AddUser(addUser);
     }
 
     [HttpPost("login")]

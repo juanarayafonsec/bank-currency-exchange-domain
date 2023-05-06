@@ -1,4 +1,4 @@
-namespace Bank.Currency.Exchange.Application.Interfaces;
+namespace Bank.Currency.Exchange.Domain.Services;
 
 public interface ITokenService
 {

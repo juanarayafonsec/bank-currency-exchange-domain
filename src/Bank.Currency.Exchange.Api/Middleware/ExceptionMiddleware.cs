@@ -2,23 +2,19 @@ using System.Net;
 using System.Text.Json;
 using Bank.Currency.Exchange.Application.Exceptions;
 using Bank.Currency.Exchange.Application.Models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Bank.Currency.Exchange.Application.Rates.Exceptions;
 
-namespace Bank.Currency.Exchange.Application.Middleware;
+namespace Bank.Currency.Exchange.Api.Middleware;
 
 public class ExceptionMiddleware
 {
-    private readonly RequestDelegate _next;
     private readonly ILogger<ExceptionMiddleware> _logger;
-    private readonly IHostEnvironment _env;
+    private readonly RequestDelegate _next;
 
-    public ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddleware> logger, IHostEnvironment env)
+    public ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddleware> logger)
     {
         _next = next;
         _logger = logger;
-        _env = env;
     }
 
     public async Task InvokeAsync(HttpContext context)
@@ -37,6 +33,12 @@ public class ExceptionMiddleware
             _logger.LogError(le, "Login Error");
             ContextSetup(context, (int)HttpStatusCode.BadRequest,
                 le.Message);
+        }
+        catch (CurrencyExchangeException ce)
+        {
+            _logger.LogError(ce, "Exchange Error");
+            ContextSetup(context, (int)HttpStatusCode.BadRequest,
+                ce.Message);
         }
         catch (Exception e)
         {

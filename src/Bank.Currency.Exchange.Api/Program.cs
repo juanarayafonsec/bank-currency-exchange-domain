@@ -1,5 +1,5 @@
 using Bank.Currency.Exchange.Api.Extensions;
-using Bank.Currency.Exchange.Application.Middleware;
+using Bank.Currency.Exchange.Api.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 

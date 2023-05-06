@@ -1,30 +1,21 @@
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.EntityFrameworkCore;
 
 namespace Bank.Currency.Exchange.Api.Controllers;
 
 [Authorize]
 public class ExchangeController : BaseApiController
 {
-    private readonly DataContext _dataContext;
+    private readonly IRateService _rateService;
 
-    public ExchangeController(DataContext dataContext)
+    public ExchangeController(IRateService rateService)
     {
-        _dataContext = dataContext;
+        _rateService = rateService;
     }
 
-    [AllowAnonymous]
-    [HttpGet("get-users")]
-    public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
+    [HttpGet]
+    public async Task<ActionResult<RateResponse>> Exchange([FromBody] ExchangeRequest request)
     {
-        var users = await _dataContext.Users.ToListAsync();
-        return users;
-    }
-
-    [HttpGet("get-user/{id}")]
-    public async Task<AppUser> GetUser(Guid id)
-    {
-        var users = await _dataContext.Users.FindAsync(id);
+        var users = await _rateService.CurrencyExchange(request);
         return users;
     }
 }

@@ -1,4 +1,4 @@
-using Bank.Currency.Exchange.Application.Interfaces;
+using Bank.Currency.Exchange.Application.Rates.Mapper;
 using Bank.Currency.Exchange.Application.Services;
 using Bank.Currency.Exchange.Domain.Configurations;
 using Bank.Currency.Exchange.Domain.Repositories;
@@ -13,6 +13,8 @@ public static class ApplicationServicesExtensions
     public static void AddServices(this IServiceCollection services, IConfiguration config)
     {
         services.Configure<JwtConfig>(config.GetSection(nameof(JwtConfig)));
+        services.Configure<ExchangeApiConfig>(config.GetSection(nameof(ExchangeApiConfig)));
+        services.AddAutoMapper(typeof(ExchangeProfile));
 
         services.AddDbContext<DataContext>(opt =>
         {
@@ -22,12 +24,15 @@ public static class ApplicationServicesExtensions
         services.AddScoped<IAccountService, AccountService>();
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IUserRepository, UserRepository>();
-        
-       services.AddApiVersioning(x =>
+        services.AddScoped<IRateService, RateService>();
+
+        services.AddApiVersioning(x =>
         {
             x.DefaultApiVersion = new ApiVersion(1, 0);
             x.AssumeDefaultVersionWhenUnspecified = true;
             x.ReportApiVersions = true;
         });
+
+        services.AddHttpClient();
     }
 }

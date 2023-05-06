@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bank.Currency.Exchange.Doma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank.Currency.Exchange.Api", "src\Bank.Currency.Exchange.Api\Bank.Currency.Exchange.Api.csproj", "{69466B90-8B0A-4A73-9FA4-9A83EA140D3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank.Currency.Exchange.Application", "src\Bank.Currency.Exchange.Application\Bank.Currency.Exchange.Application.csproj", "{07E335A3-0621-483D-B55F-902CB8479C9E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank.Currency.Exchange.Application.Account", "src\Bank.Currency.Exchange.Application.Account\Bank.Currency.Exchange.Application.Account.csproj", "{07E335A3-0621-483D-B55F-902CB8479C9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank.Currency.Exchange.Application.Rates", "src\Bank.Currency.Exchange.Application.Rates\Bank.Currency.Exchange.Application.Rates.csproj", "{848CEB6B-7336-45DA-B25E-A17703B021B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{07E335A3-0621-483D-B55F-902CB8479C9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07E335A3-0621-483D-B55F-902CB8479C9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07E335A3-0621-483D-B55F-902CB8479C9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{848CEB6B-7336-45DA-B25E-A17703B021B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{848CEB6B-7336-45DA-B25E-A17703B021B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{848CEB6B-7336-45DA-B25E-A17703B021B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{848CEB6B-7336-45DA-B25E-A17703B021B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

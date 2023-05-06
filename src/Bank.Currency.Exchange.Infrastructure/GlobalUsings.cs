@@ -1,1 +1,0 @@
-global using Bank.Currency.Exchange.Domain;

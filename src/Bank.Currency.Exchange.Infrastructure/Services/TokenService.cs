@@ -1,9 +1,9 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Bank.Currency.Exchange.Application.Interfaces;
 using Bank.Currency.Exchange.Domain.Configurations;
 using Bank.Currency.Exchange.Domain.Models;
+using Bank.Currency.Exchange.Domain.Services;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
@@ -22,7 +22,7 @@ public class TokenService : ITokenService
     {
         var claims = new List<Claim>
         {
-            new (JwtRegisteredClaimNames.NameId, user.UserName)
+            new(JwtRegisteredClaimNames.NameId, user.UserName)
         };
         var credentials = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
 
@@ -32,10 +32,10 @@ public class TokenService : ITokenService
             Expires = DateTime.Now.AddMinutes(8),
             SigningCredentials = credentials
         };
-        
+
         var tokenHandler = new JwtSecurityTokenHandler();
         var token = tokenHandler.CreateToken(tokenDescriptor);
-        
+
         return tokenHandler.WriteToken(token);
     }
 }

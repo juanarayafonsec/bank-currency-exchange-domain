@@ -1,20 +1,19 @@
 using System.Security.Cryptography;
 using System.Text;
 using Bank.Currency.Exchange.Application.Exceptions;
-using Bank.Currency.Exchange.Application.Interfaces;
 using Bank.Currency.Exchange.Domain.DTOs;
+using Bank.Currency.Exchange.Domain.Models;
 using Bank.Currency.Exchange.Domain.Repositories;
 using Bank.Currency.Exchange.Domain.Services;
-using Bank.Currency.Exchange.Domain.Models;
 using Microsoft.Extensions.Logging;
 
 namespace Bank.Currency.Exchange.Application.Services;
 
 public class AccountService : IAccountService
 {
+    private readonly ILogger<AccountService> _logger;
     private readonly ITokenService _tokenService;
     private readonly IUserRepository _userRepository;
-    private readonly ILogger<AccountService> _logger;
 
     public AccountService(ITokenService tokenService, IUserRepository userRepository, ILogger<AccountService> logger)
     {
