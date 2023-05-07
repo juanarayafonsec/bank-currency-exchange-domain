@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 
 namespace Bank.Currency.Exchange.Api.Controllers;
@@ -15,7 +16,7 @@ public class ExchangeController : BaseApiController
     [HttpGet]
     public async Task<ActionResult<RateResponse>> Exchange([FromBody] ExchangeRequest request)
     {
-        var users = await _rateService.CurrencyExchange(request);
+        var users = await _rateService.CurrencyExchange(request, User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
         return users;
     }
 }

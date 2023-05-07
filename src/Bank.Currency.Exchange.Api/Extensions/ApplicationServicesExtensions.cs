@@ -15,7 +15,8 @@ public static class ApplicationServicesExtensions
         services.Configure<JwtConfig>(config.GetSection(nameof(JwtConfig)));
         services.Configure<ExchangeApiConfig>(config.GetSection(nameof(ExchangeApiConfig)));
         services.AddAutoMapper(typeof(ExchangeProfile));
-
+        services.AddMemoryCache();
+        
         services.AddDbContext<DataContext>(opt =>
         {
             opt.UseSqlServer(config.GetConnectionString("DefaultConnection"));
