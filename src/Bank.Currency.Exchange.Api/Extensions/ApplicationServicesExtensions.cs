@@ -1,3 +1,4 @@
+using AspNetCoreRateLimit;
 using Bank.Currency.Exchange.Application.Rates.Mapper;
 using Bank.Currency.Exchange.Application.Services;
 using Bank.Currency.Exchange.Domain.Configurations;
@@ -17,6 +18,29 @@ public static class ApplicationServicesExtensions
         services.AddAutoMapper(typeof(ExchangeProfile));
         services.AddMemoryCache();
         
+        services.AddSingleton<IIpPolicyStore, MemoryCacheIpPolicyStore>();
+        services.AddSingleton<IRateLimitCounterStore, MemoryCacheRateLimitCounterStore>();
+        services.AddSingleton<IProcessingStrategy, AsyncKeyLockProcessingStrategy>();
+        services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+
+        services.AddInMemoryRateLimiting();        
+        services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+        
+        services.Configure<ClientRateLimitOptions>(options =>
+        {
+            options.EnableEndpointRateLimiting = true;
+            options.StackBlockedRequests = false;
+            options.HttpStatusCode = 429;
+            options.GeneralRules = new List<RateLimitRule>
+            {
+                new()
+                {
+                    Endpoint = "GET:/exchange/api/v1",
+                    Period = "1h",
+                    Limit = 10,
+                }
+            };
+        });
         services.AddDbContext<DataContext>(opt =>
         {
             opt.UseSqlServer(config.GetConnectionString("DefaultConnection"));

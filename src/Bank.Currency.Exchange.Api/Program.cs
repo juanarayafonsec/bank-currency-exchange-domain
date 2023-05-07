@@ -14,6 +14,8 @@ builder.Services.AddEndpointsApiExplorer();
 var app = builder.Build();
 
 app.UseMiddleware<ExceptionMiddleware>();
+app.UseMiddleware<LimitRequestsMiddleware>();
+
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
