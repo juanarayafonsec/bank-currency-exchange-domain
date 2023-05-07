@@ -3,26 +3,26 @@
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
-      <UserSecretsId>9e7e7989-f151-45ae-ad18-30b15321dda9</UserSecretsId>
-  </PropertyGroup>
+        <UserSecretsId>9e7e7989-f151-45ae-ad18-30b15321dda9</UserSecretsId>
+    </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
-        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.5" />
-        <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
+        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1"/>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.5"/>
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0-preview.3.23174.2">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0-preview.3.23174.2" />
-        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.30.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0-preview.3.23174.2"/>
+        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.30.0"/>
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Bank.Currency.Exchange.Application.Account\Bank.Currency.Exchange.Application.Account.csproj" />
-        <ProjectReference Include="..\Bank.Currency.Exchange.Application.Rates\Bank.Currency.Exchange.Application.Rates.csproj" />
-        <ProjectReference Include="..\Bank.Currency.Exchange.Domain\Bank.Currency.Exchange.Domain.csproj" />
-        <ProjectReference Include="..\Bank.Currency.Exchange.Infrastructure\Bank.Currency.Exchange.Infrastructure.csproj" />
+        <ProjectReference Include="..\Bank.Currency.Exchange.Application.Account\Bank.Currency.Exchange.Application.Account.csproj"/>
+        <ProjectReference Include="..\Bank.Currency.Exchange.Application.Rates\Bank.Currency.Exchange.Application.Rates.csproj"/>
+        <ProjectReference Include="..\Bank.Currency.Exchange.Domain\Bank.Currency.Exchange.Domain.csproj"/>
+        <ProjectReference Include="..\Bank.Currency.Exchange.Infrastructure\Bank.Currency.Exchange.Infrastructure.csproj"/>
     </ItemGroup>
 
 </Project>

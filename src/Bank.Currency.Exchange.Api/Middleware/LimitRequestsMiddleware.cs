@@ -16,7 +16,7 @@ public class LimitRequestsMiddleware : ClientRateLimitMiddleware
     public override Task ReturnQuotaExceededResponse
         (HttpContext httpContext, RateLimitRule rule, string retryAfter)
     {
-        string? path = httpContext?.Request?.Path.Value;
+        var path = httpContext?.Request?.Path.Value;
         var result = JsonSerializer.Serialize("Your 10 free request were exceeded, try later!");
         httpContext.Response.Headers["Retry-After"] = retryAfter;
         httpContext.Response.StatusCode = 429;

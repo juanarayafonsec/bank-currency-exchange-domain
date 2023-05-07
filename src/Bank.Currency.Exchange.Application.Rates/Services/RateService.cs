@@ -9,12 +9,12 @@ namespace Bank.Currency.Exchange.Application.Rates.Services;
 
 public class RateService : IRateService
 {
+    private readonly MemoryCacheEntryOptions _cacheEntryOptions;
     private readonly ExchangeApiConfig _config;
     private readonly IHttpClientFactory _httpClientFactory;
     private readonly ILogger<RateService> _logger;
     private readonly IMapper _mapper;
-    private IMemoryCache _cache;
-    private readonly MemoryCacheEntryOptions _cacheEntryOptions;
+    private readonly IMemoryCache _cache;
 
     public RateService(IHttpClientFactory httpClientFactory, IMapper mapper, ILogger<RateService> logger,
         IOptions<ExchangeApiConfig> config, IMemoryCache cache)

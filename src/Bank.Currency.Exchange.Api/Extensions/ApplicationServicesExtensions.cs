@@ -17,15 +17,15 @@ public static class ApplicationServicesExtensions
         services.Configure<ExchangeApiConfig>(config.GetSection(nameof(ExchangeApiConfig)));
         services.AddAutoMapper(typeof(ExchangeProfile));
         services.AddMemoryCache();
-        
+
         services.AddSingleton<IIpPolicyStore, MemoryCacheIpPolicyStore>();
         services.AddSingleton<IRateLimitCounterStore, MemoryCacheRateLimitCounterStore>();
         services.AddSingleton<IProcessingStrategy, AsyncKeyLockProcessingStrategy>();
         services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
 
-        services.AddInMemoryRateLimiting();        
+        services.AddInMemoryRateLimiting();
         services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
-        
+
         services.Configure<ClientRateLimitOptions>(options =>
         {
             options.EnableEndpointRateLimiting = true;
@@ -37,7 +37,7 @@ public static class ApplicationServicesExtensions
                 {
                     Endpoint = "GET:/exchange/api/v1",
                     Period = "1h",
-                    Limit = 10,
+                    Limit = 10
                 }
             };
         });
