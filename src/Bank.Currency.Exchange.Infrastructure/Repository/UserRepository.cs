@@ -22,6 +22,6 @@ public class UserRepository : IUserRepository
 
     public async Task<AppUser?> GetUserAsync(string name)
     {
-        return await _dataContext.Users.FirstOrDefaultAsync(x => x.UserName == name);
+        return await _dataContext.Users.FirstOrDefaultAsync(x => x.UserName == name.ToLower());
     }
 }

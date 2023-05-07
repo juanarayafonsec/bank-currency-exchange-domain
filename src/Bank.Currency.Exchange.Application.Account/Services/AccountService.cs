@@ -22,7 +22,7 @@ public class AccountService : IAccountService
         _logger = logger;
     }
 
-    public async Task<UserDto> AddUser(AddUserDto newUser)
+    public async Task<User> AddUser(AddUserDto newUser)
     {
         if (await _userRepository.GetUserAsync(newUser.Username) is not null)
             throw new RegistrationException("User is taken");
@@ -38,14 +38,10 @@ public class AccountService : IAccountService
 
         await _userRepository.AddUserAsync(user);
 
-        return new UserDto
-        {
-            Username = user.UserName,
-            Token = _tokenService.CreateToke(user)
-        };
+        return new User(user.UserName, _tokenService.CreateToke(user));
     }
 
-    public async Task<UserDto> Login(LoginDto login)
+    public async Task<User> Login(LoginDto login)
     {
         var user = await _userRepository.GetUserAsync(login.Username);
 
@@ -61,10 +57,6 @@ public class AccountService : IAccountService
 
         _logger.LogInformation("User {user} logged in successfully on {datetime}", login.Username, DateTime.Now);
 
-        return new UserDto
-        {
-            Username = user.UserName,
-            Token = _tokenService.CreateToke(user)
-        };
+        return new User(user.UserName, _tokenService.CreateToke(user));
     }
 }

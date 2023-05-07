@@ -2,7 +2,12 @@ namespace Bank.Currency.Exchange.Domain.DTOs;
 
 public class AddUserDto
 {
-    [Required] public string Username { get; set; }
+    public AddUserDto(string username, string password)
+    {
+        Username = username;
+        Password = password;
+    }
 
-    [Required] public string Password { get; set; }
+    [Required(AllowEmptyStrings = false)] public string Username { get; set; }
+    [Required(AllowEmptyStrings = false)] public string Password { get; set; }
 }

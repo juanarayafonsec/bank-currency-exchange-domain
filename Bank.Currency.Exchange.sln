@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank.Currency.Exchange.Appl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank.Currency.Exchange.Application.Rates", "src\Bank.Currency.Exchange.Application.Rates\Bank.Currency.Exchange.Application.Rates.csproj", "{848CEB6B-7336-45DA-B25E-A17703B021B8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank.Currency.Exchange.Test.UnitTest", "test\Bank.Currency.Exchange.Test.UnitTest\Bank.Currency.Exchange.Test.UnitTest.csproj", "{EDBB5670-6803-4B1E-9CEB-5BF98A952EF4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{848CEB6B-7336-45DA-B25E-A17703B021B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{848CEB6B-7336-45DA-B25E-A17703B021B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{848CEB6B-7336-45DA-B25E-A17703B021B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDBB5670-6803-4B1E-9CEB-5BF98A952EF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDBB5670-6803-4B1E-9CEB-5BF98A952EF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDBB5670-6803-4B1E-9CEB-5BF98A952EF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDBB5670-6803-4B1E-9CEB-5BF98A952EF4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

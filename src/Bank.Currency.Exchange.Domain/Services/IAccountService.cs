@@ -2,6 +2,6 @@ namespace Bank.Currency.Exchange.Domain.Services;
 
 public interface IAccountService
 {
-    public Task<UserDto> AddUser(AddUserDto newUser);
-    public Task<UserDto> Login(LoginDto login);
+    public Task<User> AddUser(AddUserDto newUser);
+    public Task<User> Login(LoginDto login);
 }
